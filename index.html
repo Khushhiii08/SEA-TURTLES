@@ -1,233 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navi Mumbai Aquarium | Turtle Bay 🐢</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turtle Bay | Navi Mumbai's Pastel Paradise</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;500;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mint: #e0f2f1;
+            --peach: #fff0eb;
+            --lavender: #f3e5f5;
+            --ocean-blue: #b3e5fc;
+            --text-dark: #5d4037;
+            --accent-pink: #ffcdd2;
+            --white: #ffffff;
+            --soft-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
 
-  <style>
-    :root {
-      --mint: #c7f9cc;
-      --blue: #cfe8ff;
-      --lavender: #e0c3fc;
-      --peach: #ffd6c0;
-      --text: #333;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
 
-    * { 
-        margin:0; 
-        padding:0; 
-        box-sizing:border-box; 
-        font-family:'Quicksand', sans-serif; 
-    }
+        body {
+            background-color: var(--mint);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
 
-    body {
-      background: linear-gradient(135deg, var(--blue), var(--lavender));
-      color: var(--text);
-    }
+        h1, h2, h3, .logo {
+            font-family: 'Fredoka', sans-serif;
+        }
 
-    header {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:15px 30px;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top:0;
-    }
+        /* --- Header & Nav --- */
+        header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--white);
+        }
 
-    .logo img { height:50px; }
+        .logoo {
+            font-size: 1.8rem;
+            color: #4db6ac;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 50px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-left: 30px;
+            transition: 0.3s;
+            font-size: 1.1rem;
+        }
 
-    nav a {
-      margin:0 10px;
-      text-decoration:none;
-      color:#333;
-      font-weight:600;
-    }
+        nav a:hover {
+            color: #ff8a80;
+            transform: scale(1.1);
+        }
 
-    .hero {
-      height:90vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
-      background-size:cover;
-    }
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--lavender) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+            overflow: hidden;
+        }
 
-    .hero-card {
-      background: rgba(255,255,255,0.7);
-      padding:40px;
-      border-radius:20px;
-    }
+        /* Animated Bubbles background */
+        .bubble {
+            position: absolute;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            bottom: -100px;
+            animation: bubbleUp 10s infinite ease-in;
+        }
 
-    section { padding:60px 20px; }
+        @keyframes bubbleUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-120vh); opacity: 0; }
+        }
 
-    .container {
-      max-width:1000px;
-      margin:auto;
-      text-align:center;
-    }
+        .hero-card {
+            background: rgba(255, 255, 255, 0.4);
+            padding: 60px;
+            border-radius: 40px;
+            border: 4px solid var(--white);
+            max-width: 800px;
+            box-shadow: var(--soft-shadow);
+        }
 
-    .grid {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap:20px;
-      margin-top:20px;
-    }
+        .hero h1 {
+            font-size: 4rem;
+            color: #26a69a;
+            margin-bottom: 20px;
+        }
 
-    .card {
-      background:white;
-      padding:20px;
-      border-radius:20px;
-      box-shadow:0 10px 20px rgba(0,0,0,0.1);
-    }
+        .btn-main {
+            padding: 15px 40px;
+            background: #ff8a80;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255,138,128,0.4);
+            margin-top: 20px;
+        }
 
-    .btn {
-      margin-top:10px;
-      padding:10px 15px;
-      border:none;
-      border-radius:10px;
-      background:var(--mint);
-      cursor:pointer;
-    }
+        .btn-main:hover {
+            background: #ff5252;
+            transform: translateY(-5px);
+        }
 
-    .ticket-box {
-      background:white;
-      padding:20px;
-      border-radius:20px;
-      max-width:400px;
-      margin:auto;
-      box-shadow:0 10px 20px rgba(0,0,0,0.1);
-    }
+        /* --- Content Sections --- */
+        section {
+            padding: 100px 10%;
+        }
 
-    input {
-      width:90%;
-      padding:10px;
-      margin:8px 0;
-      border-radius:10px;
-      border:1px solid #ddd;
-    }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-    footer {
-      background: rgba(255,255,255,0.6);
-      padding:20px;
-      text-align:center;
-      margin-top:40px;
-    }
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: #4db6ac;
+        }
 
-    .footer-logo { height:40px; margin-bottom:10px; }
-  </style>
+        /* --- About Grid --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: var(--soft-shadow);
+        }
+
+        /* --- Turtle Cards --- */
+        .turtle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .turtle-card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.4s;
+            border: 3px solid transparent;
+        }
+
+        .turtle-card:hover {
+            border-color: var(--accent-pink);
+            transform: scale(1.03);
+        }
+
+        .turtle-img {
+            width: 100%;
+            height: 250px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* --- Ticket Box --- */
+        .ticket-section {
+            background: var(--peach);
+            border-radius: 50px;
+            padding: 60px;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .ticket-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .ticket-price {
+            flex: 1;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #ffebee;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff8a80;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--white);
+            padding: 80px 10% 20px;
+            text-align: center;
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
   <div class="logo">
     <img src="image.png" alt="VIT-AP Logo">
   </div>
-
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#turtles">Turtles</a>
-    <a href="#tickets">Tickets</a>
-  </nav>
+  
+    <a href="#" class="logoo">🐢 Turtle Bay</a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#turtles">The Turtles</a>
+        <a href="#tickets">Book Now</a>
+    </nav>
 </header>
 
 <section class="hero" id="home">
-  <div class="hero-card">
-    <h1>🐢 Navi Mumbai Aquarium</h1>
-    <p>Welcome to a peaceful marine experience where you can explore aquatic ecosystems, discover unique turtle species, and enjoy a calming environment inspired by the ocean.</p>
-    <p>This digital experience simulates a real aquarium website with dynamic data handling and interactive sections.</p>
-  </div>
+    <div class="bubble" style="width: 40px; height: 40px; left: 10%; animation-duration: 8s;"></div>
+    <div class="bubble" style="width: 20px; height: 20px; left: 80%; animation-duration: 12s;"></div>
+    <div class="bubble" style="width: 60px; height: 60px; left: 50%; animation-duration: 15s;"></div>
+
+    <div class="hero-card animate__animated animate__zoomIn">
+        <h1>Welcome to Paradise</h1>
+        <p>A dreamy aquatic escape in the heart of Navi Mumbai. Come meet our soft-shell friends and dive into a world of pastel blues and marine wonders.</p>
+        <button class="btn-main" onclick="document.getElementById('tickets').scrollIntoView()">Start Your Adventure</button>
+    </div>
 </section>
 
 <section id="about">
-  <div class="container">
-    <h2>About the Aquarium</h2>
-    <p>The Navi Mumbai Aquarium is designed to educate visitors about marine biodiversity and conservation. It features multiple zones that replicate natural habitats such as coral reefs, lagoons, and deep-sea environments.</p>
-    <p>Visitors can learn about aquatic life, environmental sustainability, and the importance of preserving marine ecosystems.</p>
-  </div>
+    <div class="about-grid">
+        <div class="about-text">
+            <h2 style="margin-bottom: 20px; color: #ff8a80;">The Sanctuary</h2>
+            <p>Our aquarium is designed with love to mimic the natural rhythms of the ocean. We focus on <strong>Rescue, Rehabilitation, and Education</strong>.</p>
+            <p style="margin-top: 15px;">Every corner of Turtle Bay is optimized for the peace and happiness of our marine residents. It's a place where families can learn and turtles can thrive.</p>
+        </div>
+        <img src="https://media.istockphoto.com/id/504241856/photo/green-turtle-approaching-water-surface.jpg?s=612x612&w=0&k=20&c=Y3oadGWN-W4mj3676Ra8lAoJcdI9zxrlKtWwq-jVmIc=" style="width: 100%; border-radius: 40px; box-shadow: var(--soft-shadow);" alt="Turtle swimming">
+    </div>
 </section>
 
-<section id="turtles">
-  <div class="container">
-    <h2>Meet Our Turtles</h2>
-    <p>Our turtles are housed in carefully maintained environments that replicate their natural habitats.</p>
-    <div class="grid" id="turtleContainer"></div>
-  </div>
+<section id="turtles" style="background-color: var(--lavender);">
+    <div class="section-header">
+        <h2>Meet the Family</h2>
+        <p>Click on our friends to learn about their personalities!</p>
+    </div>
+    <div class="turtle-grid" id="turtleDisplay">
+        </div>
 </section>
 
 <section id="tickets">
-  <div class="container">
-    <h2>🎟️ Book Tickets</h2>
-    <p>Enjoy an affordable and educational visit. Entry fee is ₹50 per person.</p>
-    
-    <div class="ticket-box">
-      <input type="text" id="name" placeholder="Your Name">
-      <input type="number" id="count" placeholder="Number of Tickets">
-      <button class="btn" onclick="bookTickets()">Book Now</button>
-      <p id="status"></p>
+    <div class="section-header">
+        <h2>Grab Your Ticket</h2>
     </div>
-
-  </div>
+    <div class="ticket-section">
+        <div class="ticket-form">
+            <input type="text" id="custName" placeholder="What is your name? ✨">
+            <input type="number" id="custCount" placeholder="How many friends are coming? 👯">
+            <button class="btn-main" style="width: 100%;" onclick="sparkleBooking()">Book My Visit</button>
+            <p id="confirmMsg" style="margin-top: 20px; font-weight: 600; text-align: center;"></p>
+        </div>
+        <div class="ticket-price">
+            <h3 style="font-size: 2rem; color: #ff8a80;">₹50</h3>
+            <p>Flat rate for all ages!</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: #999;">*All proceeds go to our Turtle Rescue Fund.</p>
+        </div>
+    </div>
 </section>
 
 <footer>
-  <img src="image.png" class="footer-logo" alt="VIT-AP logo">
-  <p>© 2026 Khushi Rawat, Reg No. 23BCE7131 | Web Tech Assignment</p>
+    <div class="footer-cols">
+        <div>
+            <h3 style="color: #4db6ac; margin-bottom: 15px;">Turtle Bay</h3>
+            <p>Sector 15, Navi Mumbai,<br>Maharashtra, India</p>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 15px;">Hours</h4>
+            <p>Mon - Sun: 10am - 8pm</p>
+        </div>
+        <div>
+            <h4 style="margin-bottom: 15px;">Socials</h4>
+            <p><i class="fab fa-instagram"></i> @turtlebay_mumbai</p>
+            <p><i class="fab fa-tiktok"></i> @turtlebaylife</p>
+        </div>
+    </div>
+    <div class="logo">
+    <img src="image.png" alt="VIT-AP Logo">
+  </div>
+    <hr style="opacity: 0.1; margin-bottom: 20px;">
+    <p style="font-size: 0.8rem;">© 2026 Khushi Rawat | 23BCE7131 </p>
 </footer>
 
 <script>
+    // Expanded Turtle Data
+    const turtles = [
+        { 
+            name: "Mochi", 
+            type: "Green Sea Turtle", 
+            mood: "Extremely Friendly", 
+            color: "#e8f5e9",
+            img: "https://www.uwphotographyguide.com/wp-content/uploads/2019/08/Jenna_Szerlag_Hawaiian_GreenSeaTurtle_1.jpg"
+        },
+        { 
+            name: "Coco", 
+            type: "Hawksbill", 
+            mood: "Very Nappy", 
+            color: "#fff3e0",
+            img: "https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=400&q=80"
+        },
+        { 
+            name: "Splash", 
+            type: "Loggerhead", 
+            mood: "Hyperactive", 
+            color: "#e3f2fd",
+            img: "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?auto=format&fit=crop&w=400&q=80"
+        }
+    ];
 
-const mockTurtles = [
-  { name: "Shelly", habitat: "Coral Reef", mood: "Calm" },
-  { name: "Bubbles", habitat: "Open Ocean", mood: "Playful" },
-  { name: "Pearl", habitat: "Lagoon", mood: "Shy" }
-];
+    function renderTurtles() {
+        const grid = document.getElementById('turtleDisplay');
+        grid.innerHTML = turtles.map(t => `
+            <div class="turtle-card">
+                <img src="${t.img}" class="turtle-img" alt="${t.name}">
+                <h3>${t.name}</h3>
+                <p style="font-size: 0.9rem; color: #888;">${t.type}</p>
+                <div class="status-pill" style="background: ${t.color}; color: #555;">
+                    ${t.mood}
+                </div>
+            </div>
+        `).join('');
+    }
 
-function fetchTurtles() {
-  return Promise.resolve({ data: { turtles: mockTurtles } });
-}
+    function sparkleBooking() {
+        const name = document.getElementById('custName').value;
+        const count = document.getElementById('custCount').value;
+        const msg = document.getElementById('confirmMsg');
 
-function renderTurtles() {
-  fetchTurtles().then(res => {
-    const turtles = res.data.turtles;
-    const container = document.getElementById("turtleContainer");
+        if(!name || !count) {
+            msg.style.color = "#ff5252";
+            msg.innerText = "Oops! Please fill in your details! 🌸";
+            return;
+        }
 
-    container.innerHTML = turtles.map(t => `
-      <div class="card">
-        <h3>🐢 ${t.name}</h3>
-        <p>Habitat: ${t.habitat}</p>
-        <p>Mood: ${t.mood}</p>
-      </div>
-    `).join("");
-  });
-}
+        msg.style.color = "#4db6ac";
+        msg.innerText = "✨ Booking Confirmed! ✨";
+        
+        // Simulating a "real" processing delay
+        setTimeout(() => {
+            msg.innerHTML = `Yay, ${name}! Your ${count} tickets are ready for your visit! 🐢🎫`;
+        }, 600);
+    }
 
-function bookTickets() {
-  const name = document.getElementById("name").value;
-  const count = document.getElementById("count").value;
-
-  const mutation = {
-    query: `mutation { bookTickets(name: "${name}", count: ${count}) { success message } }`
-  };
-
-  console.log("GraphQL Mutation Sent:", mutation);
-
-  setTimeout(() => {
-    document.getElementById("status").innerText = `🎉 Booking confirmed for ${name} (${count} tickets)`;
-  }, 500);
-}
-
-renderTurtles();
-
+    renderTurtles();
 </script>
 
 </body>
 </html>
-
