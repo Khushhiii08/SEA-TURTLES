@@ -1,38 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SEA TURTLES! 🐢</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navi Mumbai Aquarium | Turtle Bay 🐢</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --mint: #c7f9cc;
+      --blue: #cfe8ff;
+      --lavender: #e0c3fc;
+      --peach: #ffd6c0;
+      --text: #333;
+    }
+
+    * { 
+        margin:0; 
+        padding:0; 
+        box-sizing:border-box; 
+        font-family:'Quicksand', sans-serif; 
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--blue), var(--lavender));
+      color: var(--text);
+    }
+
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 30px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top:0;
+    }
+
+    .logo img { height:50px; }
+
+    nav a {
+      margin:0 10px;
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+    }
+
+    .hero {
+      height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-size:cover;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.7);
+      padding:40px;
+      border-radius:20px;
+    }
+
+    section { padding:60px 20px; }
+
+    .container {
+      max-width:1000px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+      margin-top:20px;
+    }
+
+    .card {
+      background:white;
+      padding:20px;
+      border-radius:20px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      margin-top:10px;
+      padding:10px 15px;
+      border:none;
+      border-radius:10px;
+      background:var(--mint);
+      cursor:pointer;
+    }
+
+    .ticket-box {
+      background:white;
+      padding:20px;
+      border-radius:20px;
+      max-width:400px;
+      margin:auto;
+      box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width:90%;
+      padding:10px;
+      margin:8px 0;
+      border-radius:10px;
+      border:1px solid #ddd;
+    }
+
+    footer {
+      background: rgba(255,255,255,0.6);
+      padding:20px;
+      text-align:center;
+      margin-top:40px;
+    }
+
+    .footer-logo { height:40px; margin-bottom:10px; }
+  </style>
 </head>
+
 <body>
+
+<header>
+  <div class="logo">
+    <img src="image.png" alt="VIT-AP Logo">
+  </div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#turtles">Turtles</a>
+    <a href="#tickets">Tickets</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-card">
+    <h1>🐢 Navi Mumbai Aquarium</h1>
+    <p>Welcome to a peaceful marine experience where you can explore aquatic ecosystems, discover unique turtle species, and enjoy a calming environment inspired by the ocean.</p>
+    <p>This digital experience simulates a real aquarium website with dynamic data handling and interactive sections.</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About the Aquarium</h2>
+    <p>The Navi Mumbai Aquarium is designed to educate visitors about marine biodiversity and conservation. It features multiple zones that replicate natural habitats such as coral reefs, lagoons, and deep-sea environments.</p>
+    <p>Visitors can learn about aquatic life, environmental sustainability, and the importance of preserving marine ecosystems.</p>
+  </div>
+</section>
+
+<section id="turtles">
+  <div class="container">
+    <h2>Meet Our Turtles</h2>
+    <p>Our turtles are housed in carefully maintained environments that replicate their natural habitats.</p>
+    <div class="grid" id="turtleContainer"></div>
+  </div>
+</section>
+
+<section id="tickets">
+  <div class="container">
+    <h2>🎟️ Book Tickets</h2>
+    <p>Enjoy an affordable and educational visit. Entry fee is ₹50 per person.</p>
     
-    <h1>Shell Got My Back</h1>
-    <h2>Reptile Things, Survival On My Mind 🌊</h2>
-    <br>
-    
-    <div class="intro-box">
-        Seven species of sea turtles can be found in every ocean around the world. 
-        From leatherbacks to loggerheads, six of the seven species are threatened or endangered at the hand of humans. 
-        Below you can learn about each of the species including their biology, ecology, threats, and distribution. 🐢
+    <div class="ticket-box">
+      <input type="text" id="name" placeholder="Your Name">
+      <input type="number" id="count" placeholder="Number of Tickets">
+      <button class="btn" onclick="bookTickets()">Book Now</button>
+      <p id="status"></p>
     </div>
-    
-    <h3>Types of Sea Turtles:</h3>
-    
-    <ul class="turtle-list">
-        <li><a href="lst.html">🐢 Leatherback Sea Turtle</a></li>
-        <li><a href="gst.html">🐢 Green Sea Turtle</a></li>
-        <li><a href="hst.html">🐢 Hawksbill Sea Turtle</a></li>
-        <li><a href="l2st.html">🐢 Loggerhead Sea Turtle</a></li>
-        <li><a href="krst.html">🐢 Kemp's Ridley Sea Turtle</a></li>
-        <li><a href="orst.html">🐢 Olive Ridley Sea Turtle</a></li>
-        <li><a href="fst.html">🐢 Flatback Sea Turtle</a></li>
-    </ul>
-    
-    <h4>Fun Fact:</h4>
-    <div class="fun-fact-box">
-        Sea turtles have been around for more than 100 million years, meaning they lived alongside dinosaurs! 🦕🐢✨
-    </div>
+
+  </div>
+</section>
+
+<footer>
+  <img src="image.png" class="footer-logo" alt="VIT-AP logo">
+  <p>© 2026 Khushi Rawat, Reg No. 23BCE7131 | Web Tech Assignment</p>
+</footer>
+
+<script>
+
+const mockTurtles = [
+  { name: "Shelly", habitat: "Coral Reef", mood: "Calm" },
+  { name: "Bubbles", habitat: "Open Ocean", mood: "Playful" },
+  { name: "Pearl", habitat: "Lagoon", mood: "Shy" }
+];
+
+function fetchTurtles() {
+  return Promise.resolve({ data: { turtles: mockTurtles } });
+}
+
+function renderTurtles() {
+  fetchTurtles().then(res => {
+    const turtles = res.data.turtles;
+    const container = document.getElementById("turtleContainer");
+
+    container.innerHTML = turtles.map(t => `
+      <div class="card">
+        <h3>🐢 ${t.name}</h3>
+        <p>Habitat: ${t.habitat}</p>
+        <p>Mood: ${t.mood}</p>
+      </div>
+    `).join("");
+  });
+}
+
+function bookTickets() {
+  const name = document.getElementById("name").value;
+  const count = document.getElementById("count").value;
+
+  const mutation = {
+    query: `mutation { bookTickets(name: "${name}", count: ${count}) { success message } }`
+  };
+
+  console.log("GraphQL Mutation Sent:", mutation);
+
+  setTimeout(() => {
+    document.getElementById("status").innerText = `🎉 Booking confirmed for ${name} (${count} tickets)`;
+  }, 500);
+}
+
+renderTurtles();
+
+</script>
 
 </body>
 </html>
+
